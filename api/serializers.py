@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
+from .models import Package
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
@@ -15,3 +16,10 @@ class UserCreateSerializer(serializers.ModelSerializer):
         new_user.set_password(password)
         new_user.save()
         return validated_data
+
+
+class packages_ListView(serializers.ModelSerializer):
+    class Meta:
+        model = Package
+
+
